@@ -1,0 +1,61 @@
+@media(min-width: 0) {
+    .header-responsive{
+      font-size: 40px;
+    }
+    .header-small-responsive{
+      font-size:30px;
+    }
+}
+@media(min-width: 992px) {
+  .header-responsive{
+    font-size: 30px;
+  }
+  .header-small-responsive{
+    font-size:18px;
+  }
+}
+@media(min-width: 1200px) {
+  .header-responsive{
+    font-size: 25px;
+  }
+}
+.card {
+  padding: 10px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+.grid-img {
+  margin:1px;
+}
+.grid-col {
+  padding:0px;
+}
+.tree-element > img, .tree-element >p{
+  margin:0px;
+  display: inline;
+  vertical-align: center;
+}
+.btn>.button-text{
+  margin:0;
+  padding-top: 0.85rem;
+  padding-right: 2.13rem;
+  padding-bottom: 0.85rem;
+  padding-left: 2.13rem;
+}
+#file-tree{
+  text-align: left;
+}
+#current-img {
+  margin:auto;
+  margin-bottom: 10px;
+  width:950px;
+  height:600px;
+  position:static;
+
+}
+.unchecked .mask img {
+  visibility: hidden;
+}
+.btn{
+  padding:0;
+}

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Dmap</title>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.2.0/css/mdb.min.css"/>
+      <link rel="stylesheet" type="text/css" href="styles.css"/>
+      <link rel="stylesheet" href="jstree/default/style.min.css" />
+
+      <script type="text/javascript">
+          function mlString(f) {
+              return f.toString().
+              replace(/^[^\/]+\/\*!?/, '').
+              replace(/\*\/[^\/]+$/, '');
+          }
+
+          function run_onload() {
+              console.log("Running tests...");
+              var filenames = g_FOLDER_CONTENTS.match(/\S+/g);
+              var fragment = document.createDocumentFragment();
+              for (var i = 0; i < filenames.length; ++i) {
+                  var extension = filenames[i].substring(filenames[i].length-3);
+                  if (extension == "png") {
+                      var image = document.createElement("img");
+                      image.src = "imgs/" + filenames[i];
+                      image.width = "100";
+                      fragment.appendChild(image);
+                  }
+              }
+              document.getElementById("image_div").appendChild(fragment);
+          }
+      </script>
+      <script type="text/javascript" src="folder_contents.js"></script>
+
+
+  </head>
+  <body onload="run_onload()" style="background-color:black;">
+    <main>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 ">
+            <h2 class="header-responsive">IMG_NAME.PNG partition 1</h2>
+          </div>
+        </div>
+        <div class="row">
+            <script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+          <div class="col-md-10">
+              <a id="test">
+                  <img id="current-img" src="imgs/1.png" />
+              </a>
+              <div class="col-xs-12 grid-row">
+                <div id="image_div"  class="sample-img mask" style="" >
+                </div>
+              </div>
+          </div>
+
+          <div class="col-md-2">
+
+
+              <div class="tree">
+                  <button id="all" class="all btn btn-warning btn-sm" >Toggle All</button>
+                      <ul>
+                          <li><img src="imgs/folder.png"/><a>My Images</a>
+
+                              <ul>
+                                  <li><img src="imgs/file.png"/><a>Folder 1</a></li>
+                                  <li><img src="imgs/file.png"/><a>Folder 2</a></li>
+                                  <li><img src="imgs/file.png"/><a>Folder 3</a></li>
+                              </ul>
+                          </li>
+                      </ul>
+              </div>
+
+
+              <div class="card card-block hoverable" id="mark-btn">
+                <button type="button" class="btn btn-success btn-xs"><p class="header-small-responsive button-text">Mark</p></button>
+              </div>
+              <div class="card card-block hoverable" id="unmark-btn">
+                <button type="button" class="btn btn-deep-orange btn-block"><p class="header-small-responsive button-text">Unmark</p></button>
+              </div>
+
+
+            <div class="card card-block hoverable">
+              <div class="row" id="grid">
+                <div class="col-xs-4 grid-col">
+                  <div class="view grid-img">
+                      <img src="imgs/1.png" class="img-responsive" alt="">
+                      <div class="mask flex-center">
+                        <img src="imgs/check.png" alt="">
+                      </div>
+                  </div>
+                  <div class="view unchecked grid-img">
+                      <img src="imgs/4.png" class="img-responsive" alt="">
+                      <div class="mask flex-center">
+                        <img src="imgs/check.png" alt="">
+                      </div>
+                  </div>
+                  <div class="view unchecked grid-img">
+                      <img src="imgs/7.png" class="img-responsive" alt="">
+                      <div class="mask flex-center">
+                        <img src="imgs/check.png" alt="">
+                      </div>
+                  </div>
+                </div>
+
+                <div class="col-xs-4 grid-col">
+                  <div class="view unchecked grid-img">
+                      <img src="imgs/2.png" class="img-responsive" alt="">
+                      <div class="mask flex-center">
+                        <img src="imgs/check.png" alt="">
+                      </div>
+                  </div>
+
+                  <div class="view unchecked grid-img">
+                      <img src="imgs/5.png" class="img-responsive" alt="">
+                      <div class="mask flex-center">
+                        <img src="imgs/check.png" alt="">
+                      </div>
+                  </div>
+
+                  <div class="view unchecked grid-img">
+                      <img src="imgs/8.png" class="img-responsive" alt="">
+                      <div class="mask flex-center">
+                        <img src="imgs/check.png" alt="">
+                      </div>
+                  </div>
+                </div>
+
+                <div class="col-xs-4 grid-col">
+                  <div class="view grid-img">
+                      <img src="imgs/3.png" class="img-responsive" alt="">
+                      <div class="mask flex-center">
+                        <img src="imgs/check.png" alt="">
+                      </div>
+                  </div>
+
+                  <div class="view grid-img">
+                      <img src="imgs/6.png" class="img-responsive" alt="">
+                      <div class="mask flex-center">
+                        <img src="imgs/check.png" alt="">
+                      </div>
+                  </div>
+
+                  <div class="view  grid-img">
+                      <img src="imgs/9.png" class="img-responsive" alt="">
+                      <div class="mask flex-center">
+                        <img src="imgs/check.png" alt="">
+                      </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+                <div class="card card-block hoverable">
+                    <button type="button" class="btn btn-primary btn-xs btn-block"><p class="header-small-responsive button-text">Save Image</p></button>
+                    <button type="button" class="btn btn-primary btn-xs btn-block"><p class="header-small-responsive button-text">View on Map</p></button>
+                </div>
+
+          </div>
+        </div>
+        </div>
+      </div>
+    </main>
+
+  </body>
+
+  <!-- JQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <!-- Bootstrap -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <!-- MDB UI -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.2.0/js/mdb.min.js"></script>
+
+  <!-- Basic functionality -->
+  <script type="text/javascript" src="main.js">
+
+  </script>
+</html>
